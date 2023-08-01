@@ -43,9 +43,23 @@ public class PostService {
         return new DetailPostResponseDto(post);
     }
 
+    // 게시글 수정
+    public void editPost(Long id, CreatePostRequestDto createPostRequestDto, User user) {
+        Post post = findUserPost(id, user);
+
+        post.updatePost(createPostRequestDto);
+        postRepository.save(post);
+    }
+
     // 게시글 존재 확인
     public Post findPost(Long id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new GlobalException(GlobalErrorCode.POST_NOT_FOUND));
     }
+    //
+    public Post findUserPost(Long id, User user) {
+        return postRepository.findByIdAndUser(id, user)
+                .orElseThrow(() -> new GlobalException(GlobalErrorCode.POST_NOT_FOUND));
+    }
+
 }
