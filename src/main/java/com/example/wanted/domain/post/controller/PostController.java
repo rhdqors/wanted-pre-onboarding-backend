@@ -40,8 +40,15 @@ public class PostController {
     }
 
     // 게시글 상세 조회
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getDetailPost(@PathVariable Long id) {
         return ResponseMessage.SuccessResponse("게시글 상세 조회 완료", postService.getDetailPost(id));
+    }
+
+    // 게시글 수정
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editPost(@PathVariable Long id, @RequestBody CreatePostRequestDto createPostRequestDto, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        postService.editPost(id, createPostRequestDto, userDetails.getUser());
+        return ResponseMessage.SuccessResponse("게시글 수정 완료", "");
     }
 }
