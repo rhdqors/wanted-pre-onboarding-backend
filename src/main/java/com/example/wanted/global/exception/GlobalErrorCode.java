@@ -23,6 +23,10 @@ public enum GlobalErrorCode {
     // 409
     DUPLICATE_EMAIL(CONFLICT, "중복된 이메일이 존재합니다."),
 
+    // Post
+    // 404 Not Found - 찾을 수 없음
+    POST_NOT_FOUND(NOT_FOUND, "게시글이 존재하지 않습니다."),
+
 
    ;
 
