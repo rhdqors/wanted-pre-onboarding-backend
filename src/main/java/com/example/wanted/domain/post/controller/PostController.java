@@ -51,4 +51,11 @@ public class PostController {
         postService.editPost(id, createPostRequestDto, userDetails.getUser());
         return ResponseMessage.SuccessResponse("게시글 수정 완료", "");
     }
+
+    // 게시글 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePost(@PathVariable Long id, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        postService.deletePost(id, userDetails.getUser());
+        return ResponseMessage.SuccessResponse("게시글 삭제 완료", "");
+    }
 }

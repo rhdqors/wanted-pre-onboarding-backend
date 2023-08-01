@@ -51,12 +51,18 @@ public class PostService {
         postRepository.save(post);
     }
 
+    // 게시글 삭제
+    public void deletePost(Long id, User user) {
+        findUserPost(id, user);
+        postRepository.deleteById(id);
+    }
+
     // 게시글 존재 확인
     public Post findPost(Long id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new GlobalException(GlobalErrorCode.POST_NOT_FOUND));
     }
-    //
+    // 유저가 작성한 게시글 존재 확인
     public Post findUserPost(Long id, User user) {
         return postRepository.findByIdAndUser(id, user)
                 .orElseThrow(() -> new GlobalException(GlobalErrorCode.POST_NOT_FOUND));
