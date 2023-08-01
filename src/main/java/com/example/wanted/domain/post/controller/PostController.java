@@ -38,4 +38,10 @@ public class PostController {
                 new CustomPaginatedResponseDto<>(postsPage.getContent(), postsPage.getTotalPages(), postsPage.getTotalElements());
         return ResponseMessage.SuccessResponse("게시글 전체 조회 완료", paginatedResponse);
     }
+
+    // 게시글 상세 조회
+    @GetMapping("{id}")
+    public ResponseEntity<?> getDetailPost(@PathVariable Long id) {
+        return ResponseMessage.SuccessResponse("게시글 상세 조회 완료", postService.getDetailPost(id));
+    }
 }
