@@ -33,4 +33,8 @@ public class User {
         this.password = password;
         this.role = role;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

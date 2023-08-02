@@ -31,7 +31,7 @@ public class UserController {
     }
 
     // 로그인
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto loginRequestDto, HttpServletResponse response) {
         return ResponseMessage.SuccessResponse(userService.login(loginRequestDto, response), "");
     }
