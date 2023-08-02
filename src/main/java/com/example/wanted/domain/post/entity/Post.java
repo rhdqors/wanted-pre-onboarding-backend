@@ -21,6 +21,7 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
+    @Lob
     @Column(nullable = false)
     private String content;
 
