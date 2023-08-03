@@ -65,7 +65,7 @@ public class PostService {
     // 유저가 작성한 게시글 존재 확인
     public Post findUserPost(Long id, User user) {
         return postRepository.findByIdAndUser(id, user)
-                .orElseThrow(() -> new GlobalException(GlobalErrorCode.POST_NOT_FOUND));
+                .orElseThrow(() -> new GlobalException(GlobalErrorCode.NOT_USER));
     }
 
 }

@@ -16,6 +16,7 @@ public enum GlobalErrorCode {
 //    DUPLICATE_NICK_NAME(BAD_REQUEST, "닉네임이 동일합니다."),
     // 401 Unauthorized - 권한 없음
     INVALID_TOKEN(UNAUTHORIZED, "토큰이 유효하지 않습니다"),
+    NOT_USER(UNAUTHORIZED, "자신이 작성한 게시물만 수정할 수 있습니다."),
     // 404 Not Found - 찾을 수 없음
     PASSWORD_MISMATCH(NOT_FOUND, "비밀번호가 일치하지 않습니다."),
     EMAIL_NOT_FOUND(NOT_FOUND, "이메일이 존재하지 않습니다."),
